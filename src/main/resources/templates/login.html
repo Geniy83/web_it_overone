@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница логина</title>
+</head>
+<body>
+<h1>Добро пожаловать!</h1>
+
+<form th:action="@{/currency}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div><br>
+    <div><label> Password: <input type="password" name="password"/> </label></div><br>
+    <div><input type="submit" value="Sign In"/></div>
+ </form>
+    <h3>Если вы не зарегистрированы нажми <a th:href="@{/addUser}">сюда</a> и увидишь курсы валют))</h3>
+    </body>
+    </html>
