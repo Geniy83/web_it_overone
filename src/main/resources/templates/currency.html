@@ -11,10 +11,19 @@
 
 <script type="text/javascript">
 
-    function showCurrency() {
+
         $.get('https://www.nbrb.by/api/exrates/rates/431', function (data) {
+
             console.log(data);
 
+            JSON.stringify({
+                        Cur_ID: $("#Cur_ID").val(),
+                        date: $("#Date").val(),
+                        Cur_Abbreviation: $("#Cur_Abbreviation").val(),
+                        Cur_Scale: $("#Cur_Scale").val(),
+                        Cur_Name: $("#Cur_Name").val(),
+                        Cur_OfficialRate: $("#Cur_OfficialRate").val()
+                    })
             let table ="<table border='1'><tr><th>Cur_ID</th><th>Date</th><th>Cur_Abbreviation</th><th>Cur_Scale</th><th>Cur_Name</th><th>Cur_OfficialRate</th></tr>";
 
             for (i = 0; i < data.length; i++) {
@@ -28,37 +37,8 @@
             }
             table = table + "</table>"
 
-            $("#currency").html(table);
+            $("#currency").append(table);
         })
-    }
-
-    $(document).ready(function () {
-        showCurrency();
-    });
-
-    function send_employee() {
-
-
-        $.ajax({
-            url: 'https://www.nbrb.by/api/exrates/rates/431',
-            dataType: 'json',
-            type: 'GET',
-            cache: false,
-            contentType: 'application/json',
-            data: JSON.stringify({
-                Cur_ID: $("#Cur_ID").val(),
-                date: $("#Date").val(),
-                Cur_Abbreviation: $("#Cur_Abbreviation").val(),
-                Cur_Scale: $("#Cur_Scale").val(),
-                Cur_Name: $("#Cur_Name").val(),
-                Cur_OfficialRate: $("#Cur_OfficialRate").val()
-            }),
-            success: function () {
-                showCurrency();
-            }
-        })
-    }
-
 
 </script>
 <body>
